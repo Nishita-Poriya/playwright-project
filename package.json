@@ -1,0 +1,27 @@
+{
+  "name": "playwright-project",
+  "version": "1.0.0",
+  "description": "Project1 for playwright to explore",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "xvfb-run npx playwright test --headed",
+    "install:browsers": "npx playwright install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nishita-Poriya/playwright-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Nishita-Poriya/playwright-project/issues"
+  },
+  "homepage": "https://github.com/Nishita-Poriya/playwright-project#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0"
+  }
+}
