@@ -1,8 +1,8 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 
 // Reusable login function
 // This avoids repeating login steps in multiple tests
-async function login(page) {
+async function login(page: Page) {
 
   // Open the website
   await page.goto('https://ecommerce-playground.lambdatest.io/');
@@ -21,6 +21,9 @@ async function login(page) {
 
   // Click Login button
   await page.click("input[value='Login']");
+
+  // Wait for page to load after login
+  await page.waitForLoadState('networkidle');
 }
 
 test('Login flow with context, new tab and new window', async ({ browser }) => {
@@ -34,14 +37,11 @@ test('Login flow with context, new tab and new window', async ({ browser }) => {
   // Perform login using reusable function
   await login(page);
 
-  // Wait for a few seconds to observe login result,
-  await page.waitForTimeout(5000);
-
   // Open a new tab in the SAME context
   // This shares session, cookies and login state
   const newTab = await context.newPage();
   await newTab.goto('https://ecommerce-playground.lambdatest.io/');
-  await newTab.waitForTimeout(5000);
+  await newTab.waitForLoadState('networkidle');
 
   // Create a new context (completely new browser session)
   // This behaves like opening a new window/incognito
@@ -50,5 +50,5 @@ test('Login flow with context, new tab and new window', async ({ browser }) => {
   // Open a page in new context (new window)
   const newWindow = await newContext.newPage();
   await newWindow.goto('https://ecommerce-playground.lambdatest.io/');
-  await newWindow.waitForTimeout(5000);
+  await newWindow.waitForLoadState('networkidle');
 });

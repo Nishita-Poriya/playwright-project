@@ -1,0 +1,91 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\Welcome\\Playwright\\playwright-project\\playwright.config.ts",
+    "rootDir": "C:/Users/Welcome/Playwright/playwright-project/pomtest",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Welcome/Playwright/playwright-project/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "C:/Users/Welcome/Playwright/playwright-project/pomtest",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.test.ts"
+        ],
+        "timeout": 300000
+      },
+      {
+        "outputDir": "C:/Users/Welcome/Playwright/playwright-project/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Users/Welcome/Playwright/playwright-project/pomtest",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.test.ts"
+        ],
+        "timeout": 300000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "dot",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "jsonReports/jsonReport.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [],
+  "errors": [
+    {
+      "message": "Error: No tests found",
+      "stack": "Error: No tests found"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-04-20T07:31:24.068Z",
+    "duration": 23.712000000000444,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
