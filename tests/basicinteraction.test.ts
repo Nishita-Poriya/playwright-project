@@ -43,7 +43,7 @@ test('sum up',async ({page})=>{
 test("Checkbox", async ({ page }) => {
 
     await page.goto("https://www.lambdatest.com/selenium-playground/checkbox-demo")
-    const singleCheckbox = page.locator("id=isAgeSelected")
+    const singleCheckbox = page.locator('input[type="checkbox"]').first()
     expect(singleCheckbox).not.toBeChecked();
     await singleCheckbox.check();
     expect(singleCheckbox).toBeChecked();
