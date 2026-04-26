@@ -1,4 +1,5 @@
 // @ts-check
+declare const process: any;
 import { defineConfig, devices } from '@playwright/test';
 
 /**
@@ -14,18 +15,28 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
-  /* Run tests in files in parallel */
-  fullyParallel: true,
+  testMatch: ["tests/alert.test.ts"],
+  /* Run tests in files sequentially */
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  /* Force a single worker locally to prevent browser overlap */
+  workers: 1,
+  /* Set timeout to 120 seconds for slower headed executions */
+  timeout: 120000,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    baseURL: "https://ecommerce-playground.lambdatest.io/index.php?",
+    headless: false,
+    screenshot: "on",
+    video: "on",
+    launchOptions: {
+      // slowMo: 1000
+    },
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
