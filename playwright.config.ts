@@ -15,7 +15,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
-  testMatch: ["tests/alert.test.ts"],
+  testMatch: ["tests/**/*.test.ts"],
   /* Run tests in files sequentially */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
